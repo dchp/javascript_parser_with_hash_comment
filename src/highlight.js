@@ -26,7 +26,7 @@ export const jsHighlight = styleTags({
   PropertyDefinition: t.definition(t.propertyName),
   PrivatePropertyDefinition: t.definition(t.special(t.propertyName)),
   UpdateOp: t.updateOperator,
-  "LineComment Hashbang": t.lineComment,
+  "LineComment HashComment Hashbang": t.lineComment,
   BlockComment: t.blockComment,
   Number: t.number,
   String: t.string,

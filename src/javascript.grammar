@@ -610,7 +610,7 @@ plusMin { ArithOp<"+" | "-"> }
 
 intersectionOp[@name=LogicOp] { "&" }
 
-@skip { spaces | newline | LineComment | BlockComment }
+@skip { spaces | newline | LineComment | HashComment | BlockComment }
 
 @context trackNewline from "./tokens.js"
 
@@ -645,13 +645,15 @@ intersectionOp[@name=LogicOp] { "&" }
 
   LineComment[isolate] { "//" ![\n]* }
 
+  HashComment[isolate] { "#" (" " | "\"") ![\n]* }
+
   Hashbang { "#!" ![\n]* }
 
   divide[@name=ArithOp] { "/" }
 
-  @precedence { "/*", LineComment, divide }
+  @precedence { "/*", LineComment, HashComment, divide }
 
-  @precedence { "/*", LineComment, RegExp }
+  @precedence { "/*", LineComment, HashComment, RegExp }
 
   identifierChar { @asciiLetter | $[_$\u{a1}-\u{10ffff}] }
 
