@@ -645,7 +645,7 @@ intersectionOp[@name=LogicOp] { "&" }
 
   LineComment[isolate] { "//" ![\n]* }
 
-  HashComment[isolate] { "#" (" " | "\"") ![\n]* }
+  HashComment[isolate] { "#" (" " | "\"" | "#") ![\n]* }
 
   Hashbang { "#!" ![\n]* }
 
